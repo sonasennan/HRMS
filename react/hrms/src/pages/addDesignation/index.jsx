@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-
+import {getDesignationData} from '../../store/listDesignation';
  
 const initialValues = {
   designation_name:'',
@@ -32,11 +32,19 @@ const AddDesignation = () => {
     });
   };
 
+  const handleSuccessCB = (data) => {
+    console.log("success data",data);
+    handleClose();
+    dispatch(getDesignationData());
+    
+  }
+
   const handleAddDesignation = (e) => {
     e.preventDefault();
     console.log(designation,"DESI")
-    dispatch(postDesignationData({ designation: designation }));
-    handleClose(); // Close modal after form submission
+    dispatch(postDesignationData({ designation: designation ,successCB: handleSuccessCB}));
+    handleClose();
+     
   };
 
   const style = {
@@ -97,6 +105,8 @@ const AddDesignation = () => {
               <button type="submit" style={buttonn}>
                 Add
               </button>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <button onClick={handleClose} style={buttonn}>Close</button>
             </div>
           </form>
         </Box>

@@ -8,9 +8,9 @@ const initialState= {
 
 export const updateEmployeeData = createAsyncThunk(
     "updateEmployeeapi",
-    async({data,employee_id}) => {
+    async({data,employee_id,successCB}) => {
         console.log(data,"DATA")
-        const response = await updateEmployee({data,employee_id});
+        const response = await updateEmployee({data,employee_id,successCB});
         return response.data;
     }
 

@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import axios from 'axios';
+import { getDesignationData } from '../../store/listDesignation';
 
 const initialValues = {
     designation_name: '',
@@ -27,6 +28,11 @@ const initialValues = {
         [name]: value,
       });
     };
+
+    const handleSuccessCB = () => {
+      handleClose();
+      dispatch(getDesignationData())
+    }
                                                               
     
     useEffect(() => {
@@ -46,7 +52,7 @@ const initialValues = {
       
       const handleUpdateDesignation = (e) => {
         e.preventDefault();
-        dispatch(updateDesignationData({ data: designation, designation_id: designationId }))
+        dispatch(updateDesignationData({ data: designation, designation_id: designationId ,successCB:handleSuccessCB}))
           .then(() => {
             handleClose(); // Close modal after successful update
           })
@@ -115,6 +121,8 @@ const initialValues = {
                   <button type="submit" style={buttonn}>
                     Add
                   </button>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <button onClick={handleClose} style={buttonn}>Close</button>
                 </div>
               </form>
             </Box>

@@ -211,10 +211,6 @@ body {
 
 
 .card {
-  /* background-color: #ece2e2;  */
-  border: 1px solid #916a6a;
-  border-radius: 8px; 
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
   width: 100%; 
   max-width: 600px; 
   margin: 0 auto;
@@ -222,7 +218,6 @@ body {
 }
 
 .card-header {
-  border-bottom: 1px solid #ccc; 
   padding-bottom: 30px; 
   margin-bottom: 30px; 
 }
@@ -232,9 +227,6 @@ body {
   font-size: 1.5rem;
 }
 
-/* .card-body {
-  background-color:#eaeff3;
-} */
 
 .detail-item {
   margin-bottom: 10px; 
@@ -247,9 +239,9 @@ body {
 }
 
 .loading {
-  background-color: #fefefe; 
-  border: 1px solid #ccc; 
-  border-radius: 8px; 
+  /* background-color: #fefefe;  */
+  /* border: 1px solid #ccc;  */
+  /* border-radius: 8px;  */
   width: 100%; 
   max-width: 600px; 
   margin: 0 auto; 
@@ -257,9 +249,9 @@ body {
 }
 
 .error {
-  background-color: #f8d7da; 
+  /* background-color: #f8d7da;  */
   color: #721c24; 
-  border: 1px solid #f5c6cb; 
+  /* border: 1px solid #f5c6cb;  */
   border-radius: 8px;
   width: 100%; 
   max-width: 600px; 
@@ -290,4 +282,79 @@ body {
   right: 230px;
   border:1px solid black;
 }
+
+
+.vcard-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align items to the top */
+  height: 100vh; /* Full viewport height */
+  padding: 20px;
+}
+
+.vcard-details {
+  flex: 1; /* Take remaining space */
+  max-width: 100%; /* Limit width for content */
+  margin-right: 20px;
+}
+
+.qr-code {
+  flex: 0 0 200px; /* Fixed width for QR code section */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin-left: auto;
+  position:absolute;
+  top:400px;
+  right:770px;
+}
+
+.card {
+  /* background-color: #f0f0f0; */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.card-body {
+  /* Add any other styling for card body */
+}
+
+.detail-item {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+
+}
+
+.detail-item strong {
+  min-width: 150px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.qr-code h2 {
+  margin-bottom: 10px;
+}
+
+.qr-code img {
+  width: 50px; /* Adjust the size of the QR code */
+  height: 50px;
+}
+
+
+.button-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
 

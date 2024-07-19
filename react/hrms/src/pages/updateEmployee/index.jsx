@@ -188,6 +188,8 @@ const initialValues = {
                   <button type="submit" style={buttonn}>
                     Add
                   </button>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <button onClick={handleClose} style={buttonn}>Close</button>
                 </div>
               </form>
             </Box>

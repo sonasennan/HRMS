@@ -8,9 +8,9 @@ const initialState ={
 
 export const postDesignationData = createAsyncThunk(
     "AddDesignationData",
-    async({designation}) =>{
+    async({designation,successCB}) =>{
         console.log(designation,"DATA")
-            const response = await postDesignation({designation})
+            const response = await postDesignation({designation,successCB})
             return response;
         }
 )

@@ -8,8 +8,8 @@ const initialState= {
 
 export const updateDesignationData = createAsyncThunk(
     "updateDesignationapi",
-    async({data,designation_id}) => {
-        const response = await updateDesignation({data,designation_id});
+    async({data,designation_id,successCB}) => {
+        const response = await updateDesignation({data,designation_id,successCB});
         return response.data;
     }
 
