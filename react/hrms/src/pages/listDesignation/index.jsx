@@ -195,11 +195,12 @@ const Designation = () => {
                   <TableCell align="right">{data.designation_name}</TableCell>
                   <TableCell align="right">{data.maximum_leave}</TableCell>
                   <TableCell align="right">
-                    <Button variant="outlined" onClick={() => handleDelete(data.designation_id)} startIcon={<DeleteIcon />}>
-                      Delete
-                    </Button>
                     <Button size="small" disableElevation>
                       <UpdateDesignation designationData={data} designationId={data.designation_id} />
+                    </Button>
+
+                    <Button variant="outlined" onClick={() => handleDelete(data.designation_id)} startIcon={<DeleteIcon />}>
+                      Delete
                     </Button>
                   </TableCell>
                 </TableRow>

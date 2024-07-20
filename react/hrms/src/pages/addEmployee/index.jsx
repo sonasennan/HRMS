@@ -1,10 +1,12 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch , useSelector } from 'react-redux';
 import { postEmployeeData, getEmployeeData } from '../../store/employeelist';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import { getDesignationData } from '../../store/listDesignation';
+
 
 const initialValues = {
   employee_name: '',
@@ -19,6 +21,9 @@ const AddEmployee = ({ open, handleClose, handleOpen }) => {
   const [employee, setEmployee] = useState(initialValues);
   const [errors, setErrors] = useState({});
   const [errorMessage, setErrorMessage] = useState('');
+
+  const designationData = useSelector((state) => state.designationData.data);
+  console.log(designationData,"desi data")
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

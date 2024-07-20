@@ -120,9 +120,9 @@ const Employee = () => {
                     <Button 
                       variant="outlined" 
                       color="primary" 
-                      size="small" 
+                      size="medium" 
                       onClick={() => handleEachEmployee(data.employee_id)}
-                      style={{ marginLeft: '10px' }}
+                      style={{ marginLeft: '10px'}}
                     >
                       View Details
                     </Button>
