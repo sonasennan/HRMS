@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useState ,useEffect} from 'react';
 import { useDispatch , useSelector } from 'react-redux';
 import { postEmployeeData, getEmployeeData } from '../../store/employeelist';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-// import { getDesignationData } from '../../store/listDesignation';
+import { MenuItem, Select } from '@mui/material';
+import { getDesignationData } from '../../store/listDesignation';
+
 
 
 const initialValues = {
@@ -22,8 +24,14 @@ const AddEmployee = ({ open, handleClose, handleOpen }) => {  //eslint-disable-l
   const [errors, setErrors] = useState({});
   const [errorMessage, setErrorMessage] = useState('');
 
-  const designationData = useSelector((state) => state.designationData.data);
-  console.log(designationData,"desi data")
+  const designation = useSelector((state) => state.designationData.data);
+  console.log(designation,"desi data")
+
+  useEffect(() => {
+    dispatch(getDesignationData());
+  }, [dispatch]);
+
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -206,7 +214,7 @@ const AddEmployee = ({ open, handleClose, handleOpen }) => {  //eslint-disable-l
               />
               {errors.email && <span style={{ color: 'red' }}>{errors.email}</span>}
             </div>
-
+{/* 
             <div style={{ marginBottom: '15px' }} id="form-group">
               <label>Designation Name:</label>
               <input
@@ -217,7 +225,26 @@ const AddEmployee = ({ open, handleClose, handleOpen }) => {  //eslint-disable-l
                 style={inputStyle}
                 required
               />
-            </div>
+            </div> */}
+
+            <Select
+            name="des_name"
+            value={employee.des_name}
+            onChange={handleInputChange}
+            style={inputStyle}
+            displayEmpty
+            >
+              <MenuItem value="" disabled>
+              Select Designation
+              </MenuItem>
+              {designation.map(designation => (
+                <MenuItem key={designation.designation_name} value={designation.designation_name}>
+                  {designation.designation_name}
+                </MenuItem>
+              ))}
+            </Select>
+
+
 
             <div>
               <button type="button" style={buttonn} onClick={Validate}>

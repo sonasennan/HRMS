@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch , useSelector } from 'react-redux';
 import { updateEmployeeData } from '../../store/updateEmployee'; // Import your async thunk action
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -8,6 +8,8 @@ import Modal from '@mui/material/Modal';
 import axios from 'axios'; // Import axios for API calls
 import EditIcon from '@mui/icons-material/Edit';
 import { getEmployeeData } from '../../store/employeelist';
+import { getDesignationData } from '../../store/listDesignation';
+import { MenuItem, Select } from '@mui/material';
 
 const initialValues = {
     employee_name: '',
@@ -29,6 +31,15 @@ const initialValues = {
     // function refreshPage() {
     //   window.location.reload();
     // }
+
+    const designation = useSelector((state) => state.designationData.data);
+    console.log(designation,"desi data")
+  
+    useEffect(() => {
+      dispatch(getDesignationData());
+    }, [dispatch]);
+
+
 
     const handleInputChange = (e) => {
       const { name, value } = e.target;
@@ -159,7 +170,7 @@ const initialValues = {
                   />
                 </div>
     
-                <div style={{ marginBottom: '15px' }} id="form-group">
+                {/* <div style={{ marginBottom: '15px' }} id="form-group">
                   <label>Designation name:</label>
                   <input
                     type="text"
@@ -169,7 +180,25 @@ const initialValues = {
                     style={inputStyle}
                     required
                   />
-                </div>
+                  
+                </div> */}
+
+           <Select
+            name="des_name"
+            value={employee.des_name}
+            onChange={handleInputChange}
+            style={inputStyle}
+            displayEmpty
+            >
+              <MenuItem value="" disabled>
+              Select Designation
+              </MenuItem>
+              {designation.map(designation => (
+                <MenuItem key={designation.designation_name} value={designation.designation_name}>
+                  {designation.designation_name}
+                </MenuItem>
+              ))}
+            </Select>
 
                 <div style={{ marginBottom: '15px' }} id="form-group">
                   <label>Leave taken:</label>
