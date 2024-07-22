@@ -13,14 +13,4 @@ export const fetchEmployeeById = (employee_id) => {
     });
 };
 
-// employeelist.js (actions)
-// export const getEmployeeById = (employee_id) => async (dispatch) => {
-//   try {
-//     const url = `${import.meta.env.VITE_APP_BASE_URL}/employee/${employee_id}`;
-//     const response = await axios.get(url);
-//     dispatch({ type: 'GET_EMPLOYEE_SUCCESS', payload: response.data });
-//   } catch (error) {
-//     console.error('Error fetching employee details:', error);
-//     // Handle error state or throw error
-//   }
-// };
+

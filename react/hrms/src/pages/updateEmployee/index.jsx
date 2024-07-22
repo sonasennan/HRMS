@@ -18,7 +18,7 @@ const initialValues = {
     leave_taken:''
   };
   
-  const UpdateEmployee = ({ employeeId }) => {
+  const UpdateEmployee = ({ employeeId }) => {     //eslint-disable-line
     const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
     const [employee, setEmployee] = useState(initialValues);

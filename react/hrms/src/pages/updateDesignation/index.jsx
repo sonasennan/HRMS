@@ -13,7 +13,7 @@ const initialValues = {
     maximum_leave: ''
   };
   
-  const UpdateDesignation = ({ designationId }) => {
+  const UpdateDesignation = ({ designationId }) => {    //eslint-disable-line
     const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
     const [designation, setDesignation] = useState(initialValues);

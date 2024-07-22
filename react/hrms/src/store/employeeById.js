@@ -2,50 +2,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { fetchEmployeeById } from '../api/employeeById';
 
 
-// const initialState={
-//     status:'idle',
-//     data:[],
-// };
-
-// export const getEmployeeDataById = createAsyncThunk(
-//     'employeeDataById',
-//     async () =>
-//         {
-//             const response = await fetchEmployeeById();
-//             console.log(response,"response")
-//             return response;
-//         },
-// );
-
-
-// const eachEmployeeDataSlice = createSlice(
-//     {
-//         name:'employeeDataById',
-//         initialState: initialState,
-//         reducers : {},
-//         extraReducers : (builder) => {
-//             builder
-//             .addCase(getEmployeeDataById.pending, (state) => {
-//                 state.status="pending";})
-
-
-//             .addCase(getEmployeeDataById.fulfilled, (state,action) =>
-//                 {
-//                     state.status='succeeded';
-//                     console.log(action,"Action");
-//                     state.data=action.payload;
-//                 })
-
-
-//             .addCase(getEmployeeDataById.rejected, (state) =>
-//                 {
-//                     state.status='failed';
-//                 });
-//         }
-//     }
-// );
-
-// export default eachEmployeeDataSlice.reducer;
 const initialState={
     status:'idle',
     data:null,
