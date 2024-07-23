@@ -17,7 +17,7 @@
 
 - To run flask :      flask --app app run --debug
 
-- To run react :   npm run dev
+- To run react :   npm install , then ,npm run dev
 
 
 ## Unittest
