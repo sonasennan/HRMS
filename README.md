@@ -15,7 +15,9 @@
 
 - `. ./venv/bin/activate`  
 
-- to run :      flask --app app run --debug
+- To run flask :      flask --app app run --debug
+
+- To run react :   npm run dev
 
 
 ## Unittest
