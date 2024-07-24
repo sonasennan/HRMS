@@ -319,18 +319,18 @@ def list_employee():
 #             employee.email = request.json['email']
 
         
-#         if 'leave_taken' in request.json:
+        # if 'leave_taken' in request.json:
             
-#             designation = employee.designation
-#             if designation:
-#                 max_leave = designation.maximum_leave
-#                 new_leave_taken = request.json['leave_taken']
+        #     designation = employee.designation
+        #     if designation:
+        #         max_leave = designation.maximum_leave
+        #         new_leave_taken = request.json['leave_taken']
 
-#                 # Ensure leave_taken does not exceed maximum_leave
-#                 if int(new_leave_taken) > max_leave:
-#                     new_leave_taken = max_leave
+        #         # Ensure leave_taken does not exceed maximum_leave
+        #         if int(new_leave_taken) > max_leave:
+        #             new_leave_taken = max_leave
 
-#                 employee.leave_taken = new_leave_taken
+        #         employee.leave_taken = new_leave_taken
 
         
 #         if 'des_name' in request.json:
@@ -409,9 +409,23 @@ def update_employee(employee_id):
     if 'email' in request.json:
         employee.email = request.json['email']
 
+    # if 'leave_taken' in request.json:
+    #     employee.leave_taken = request.json['leave_taken']
     if 'leave_taken' in request.json:
-        employee.leave_taken = request.json['leave_taken']
+            
+        # designation = employee.designation
+        # if designation:
+        max_leave = employee.designation.maximum_leave
+        new_leave_taken = request.json['leave_taken']
 
+            # Ensure leave_taken does not exceed maximum_leave
+        if int(new_leave_taken) <= max_leave:
+            employee.leave_taken = new_leave_taken
+        else:
+            # new_leave_taken = max_leave
+            # employee.leave_taken = new_leave_taken
+            return jsonify({'message': 'Maximum Leave Exceeded'}),401
+                
     if 'des_name' in request.json:
         des_name = request.json['des_name']
         designation = Designation.query.filter_by(designation_name=des_name).first()

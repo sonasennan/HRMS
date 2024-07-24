@@ -75,23 +75,25 @@ const Employee = () => {
     setOpen(true)
   }
 
+  
+
   return (
     <>  
       {isLoading === "pending" ? (
         <div>LOADING ...</div>
       ) : (
         
-        <TableContainer component={Paper} sx={{ marginTop: "40px" }}>
+        <TableContainer component={Paper} sx={{ marginTop: "40px" }} className="table-container">
           <ButtonAppBar />
           
           <Table sx={{ minWidth: 1000 }} aria-label="simple table">
-            <TableHead>
+            <TableHead sx={{ backgroundColor: '#e3f2fd', borderBottom: '1px solid #dddddd' }}>
               <TableRow>
-                <TableCell align="right">Employee id</TableCell>
-                <TableCell align="right">Employee Name</TableCell>
-                <TableCell align="right">Designation</TableCell>
-                <TableCell align="right">Phone Number</TableCell>
-                <TableCell align="right">Leaves</TableCell>
+                <TableCell align="right" sx={{ color: '#333', fontWeight: 'bold' }}>Employee id</TableCell>
+                <TableCell align="right" sx={{ color: '#333', fontWeight: 'bold' }}>Employee Name</TableCell>
+                <TableCell align="right" sx={{ color: '#333', fontWeight: 'bold' }}>Designation</TableCell>
+                <TableCell align="right" sx={{ color: '#333', fontWeight: 'bold' }}>Phone Number</TableCell>
+                <TableCell align="right" sx={{ color: '#333', fontWeight: 'bold' }}>Leaves</TableCell>
 
                 {/* <TableCell align="right">Leaves Taken</TableCell>
                 <TableCell align="right">Maximum Leave</TableCell> */}

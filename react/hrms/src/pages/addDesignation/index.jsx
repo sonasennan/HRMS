@@ -16,7 +16,7 @@ const AddDesignation = () => {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [designation, setDesignation] = useState(initialValues);
-  console.log(designation,"DESIGNATION")
+  // console.log(designation,"DESIGNATION")
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
@@ -41,7 +41,7 @@ const AddDesignation = () => {
 
   const handleAddDesignation = (e) => {
     e.preventDefault();
-    console.log(designation,"DESI")
+    // console.log(designation,"DESI")
     dispatch(postDesignationData({ designation: designation ,successCB: handleSuccessCB}));
     handleClose();
      

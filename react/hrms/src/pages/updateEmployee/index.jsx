@@ -24,6 +24,7 @@ const initialValues = {
     const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
     const [employee, setEmployee] = useState(initialValues);
+    const [error,setError] = useState(null);
   
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -33,7 +34,7 @@ const initialValues = {
     // }
 
     const designation = useSelector((state) => state.designationData.data);
-    console.log(designation,"desi data")
+    // console.log(designation,"desi data")
   
     useEffect(() => {
       dispatch(getDesignationData());
@@ -76,11 +77,16 @@ const initialValues = {
         
       }
 
+      const handleErrorCB = (data) => {
+        setError(data)
+        return(data)
+      }
+
       const handleUpdateEmployee = (e) => {
         e.preventDefault();
-        dispatch(updateEmployeeData({ data: employee, employee_id: employeeId , successCB:handlesuccessCB }))
+        dispatch(updateEmployeeData({ data: employee, employee_id: employeeId , successCB:handlesuccessCB ,errorCB:handleErrorCB }))
           .then(() => {
-            handleClose(); 
+            // handleClose(); 
             // refreshPage()
             // dispatch(getEmployeeData)
     
@@ -210,6 +216,7 @@ const initialValues = {
                     style={inputStyle}
                     required
                   />
+                  {error}
                 </div>
     
     

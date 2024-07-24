@@ -357,4 +357,20 @@ body {
   justify-content: space-between;
 }
 
+.table-container {
+  max-height: 750px; /* Adjust as needed */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.MuiTableHead-root {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #c9bbbb; /* White background for headers */
+}
+
+.MuiTableCell-head {
+  border-bottom: 1px solid #dddddd;
+  font-weight: bold;
+}
 

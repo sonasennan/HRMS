@@ -39,7 +39,7 @@ const initialValues = {
         const fetchDesignationDetails = async () => {
           const response = await axios.get(`${import.meta.env.VITE_APP_BASE_URL}/designation/${designationId}`);
           const designationData = response.data;
-          console.log(designationData,"")
+          // console.log(designationData,"")
           setDesignation({
             designation_name: designationData.designation_name,
             maximum_leave: designationData.maximum_leave,
