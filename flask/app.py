@@ -8,7 +8,7 @@ import datetime as dt
 
 app = flask.Flask(__name__)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:1234@localhost:5432/hrms"
+app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
 app.config['SECRET_KEY'] = 'sona'
 CORS(app)
 db.init_app(app)
